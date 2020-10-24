@@ -36,6 +36,7 @@ public class QuizAppController {
     @GetMapping("/check")
     public String check(@RequestParam String question,@RequestParam boolean answer){
         // TODO: 回答が正しいかどうかのチェックして、結果を返却する
+        String
     }
 
 }
