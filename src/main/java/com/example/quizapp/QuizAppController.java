@@ -36,7 +36,17 @@ public class QuizAppController {
     @GetMapping("/check")
     public String check(@RequestParam String question,@RequestParam boolean answer){
         // TODO: 回答が正しいかどうかのチェックして、結果を返却する
-        String question;
+        // 指定されたquestionを登録済のクイズから検索する
+        for (Quiz quiz: quizzes) {
+            // もしクイズが見つかったら
+            if (quiz.getQuestion().equals(question)) {
+                return "見つかった:" + quiz.getQuestion();
+            }
+            // 登録されているanswerと回答として渡ってきたanswerが一致していたら正解と返却
+            // もし一致していなければ不正解と返却する
+        }
+           // もしクイズが見つからなかった場合は、問題がありませんとと返却する。
+           return "問題がありません";
     }
 
 }
