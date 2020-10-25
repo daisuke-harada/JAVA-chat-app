@@ -40,10 +40,17 @@ public class QuizAppController {
         for (Quiz quiz: quizzes) {
             // もしクイズが見つかったら
             if (quiz.getQuestion().equals(question)) {
-                return "見つかった:" + quiz.getQuestion();
+
+                // answerがbooleanのため、equalsは使えない
+                if (quiz.isAnswer() == answer) {
+                    // 登録されているanswerと回答として渡ってきたanswerが一致していたら正解と返却
+                    return "正解";
+                }else{
+                    // もし一致していなければ不正解と返却する
+                    return "不正解";
+                }
+
             }
-            // 登録されているanswerと回答として渡ってきたanswerが一致していたら正解と返却
-            // もし一致していなければ不正解と返却する
         }
            // もしクイズが見つからなかった場合は、問題がありませんとと返却する。
            return "問題がありません";
