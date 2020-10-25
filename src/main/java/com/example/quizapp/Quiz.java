@@ -26,4 +26,11 @@ public class Quiz{
     public boolean isAnswer(){
         return answer;
     }
+    //
+    @Override
+    public String toString() {
+        // 条件演算子 true:false
+        String marubatsu = answer ? "○" : "×";
+        return question + "" + marubatsu;
+    }
 }
