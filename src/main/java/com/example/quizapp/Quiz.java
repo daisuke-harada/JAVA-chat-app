@@ -44,7 +44,7 @@ public class Quiz {
     // staticをついているからインスタンスを呼び出さずにすんだ
 
     public static Quiz fromString(String line) {
-        String question = line.substring(0, line.length() -1);
+        String question = line.substring(0, line.length() - 1);
         boolean answer = line.endsWith("○");
 
         return new Quiz(question, answer);
